@@ -69,9 +69,9 @@ build {
     ssh_username = "ec2-user"
     }
    
- provisioner "ansible" {
-  playbook_file = "../ansible/application.yml"
-}
+# provisioner "ansible" {
+ # playbook_file = "./ansible/application.yml"
+#}
 
   }
 
