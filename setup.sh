@@ -5,6 +5,6 @@ sudo yum update -y
 sudo yum install unzip wget tree -y
 
 #Install ansible 
-yum install ansible -y
+sudo amazon-linux-extras install ansible2
 
 
