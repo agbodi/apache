@@ -19,7 +19,7 @@ locals {
 # source.
 source "amazon-ebs" "firstrun" {
   ami_name                              = join("-", ["jango-base", local.release_id])
-  instance_type                         = "t3.micro"
+  instance_type                         = "t2.micro"
   iam_instance_profile                  = "FOR_FUSION_Console_Admins"
   region                                = var.region
   subnet_id                             = var.public_subnet_id
