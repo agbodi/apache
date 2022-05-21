@@ -32,9 +32,10 @@ source "amazon-ebs" "apache-server" {
 
 build {
   name    = "packer-apache"
-  source = "source.amazon-ebs.apache-server" {
+  source "source.amazon-ebs.apache-server" {
     ssh_username = "ec2-user"
     }
+   
  provisioner "ansible" {
   playbook_file = "../ansible/application.yml"
 }
