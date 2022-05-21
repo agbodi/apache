@@ -38,7 +38,7 @@ jobs:
         with:
           command: validate
           arguments: -syntax-only
-          working_directory: packer
+          target: *.pkl.hcl
 
       # build artifact
       - name: Build Artifact
@@ -46,7 +46,7 @@ jobs:
         with:
           command: build
           arguments: "-color=false -on-error=abort"
-          working_directory: packer
+          target: *.pkl.hcl
         env:
           PACKER_LOG: 1
 
