@@ -33,7 +33,7 @@ source "amazon-ebs" "apache-server" {
 build {
   name    = "packer-apache"
   sources = [
-    "source.amazon-ebs.apache-server"
+    "source.amazon-ebs.apache-server",
     ssh_username = "ec2-user"
   ]
 
