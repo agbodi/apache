@@ -47,7 +47,7 @@ build {
       "sudo sudo yum install -y httpd mariadb-server",
       "sudo systemctl start httpd",
       "sudo systemctl enable httpd",
-      "sudo systemctl status amazon-ssm-agent"
+      "sudo systemctl status amazon-ssm-agent",
       "echo Install apache2 - SUCCESS",
     ]
   }
