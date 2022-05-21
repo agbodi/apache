@@ -43,7 +43,7 @@ build {
     inline = [
       "echo Install Apache Server - START",
       "sleep 10",
-      "sudo yum update",
+      "sudo yum update -y",
       "sudo sudo yum install -y httpd mariadb-server",
       "sudo systemctl start httpd",
       "sudo systemctl enable httpd",
