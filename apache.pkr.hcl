@@ -7,22 +7,20 @@ packer {
   }
 }
 
-variable "ami_prefix" {
-  type    = string
-  default = "packer-aws-apache"
-}
-
 locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 }
 
 source "amazon-ebs" "apache-server" {
   ami_name      = "${var.ami_prefix}-${local.timestamp}"
-  instance_type = "t2.micro"
-  region        = "us-east-1"
+  instance_type = "${var.instance_type}"
+  region        = "${var.region}"
+  security_group_id = "${var.security_group_id}"
+  subnet_id     = "${var.subnet_id}"
+  associate_public_ip_address = true
   source_ami_filter {
     filters = {
-      image-id = "ami-0022f774911c1d690"
+      image-id = "${var.ami_id}"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -36,20 +34,12 @@ build {
   name    = "packer-apache"
   sources = [
     "source.amazon-ebs.apache-server"
+    ssh_username = "ec2-user"
   ]
 
-  provisioner "shell" {
-
-    inline = [
-      "echo Install Apache Server - START",
-      "sleep 10",
-      "sudo yum update -y",
-      "sudo sudo yum install -y httpd mariadb-server",
-      "sudo systemctl start httpd",
-      "sudo systemctl enable httpd",
-      "sudo systemctl status amazon-ssm-agent",
-      "echo Install apache2 - SUCCESS",
-    ]
-  }
+ provisioner "ansible" {
+  playbook_file = "../ansible/application.yml"
 }
+
+  }
 
