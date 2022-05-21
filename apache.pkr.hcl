@@ -27,7 +27,6 @@ source "amazon-ebs" "apache-server" {
     most_recent = true
     owners      = ["137112412989"]
   }
-  ssh_username = "ec2-user"
 }
 
 build {
