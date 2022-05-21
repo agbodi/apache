@@ -5,7 +5,7 @@ name: AWS AMI using Packer Config
 on:
   push:
     branches: [ master ]
-  pull_requests: [ master ]
+  pull_request: [ master ]
     branches: [ master ]
 
 jobs:
