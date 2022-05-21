@@ -22,6 +22,7 @@ source "amazon-ebs" "apache-server" {
   region        = "us-east-1"
   source_ami_filter {
     filters = {
+      image-id = "ami-0a391fdc518fc8a51"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
