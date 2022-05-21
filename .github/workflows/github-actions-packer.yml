@@ -40,7 +40,7 @@ jobs:
           arguments: -syntax-only
           templateFile: 'apache.pkr.hcl'
           varFile: 'variables.pkr.hcl'
-          workingDir: 'packer'
+          workingDir: '.'
 
       # build artifact
       - name: Build Artifact
@@ -50,7 +50,7 @@ jobs:
           arguments: "-color=false -on-error=abort"
           templateFile: 'apache.pkr.hcl'
           varFile: 'variables.pkr.hcl'
-          workingDir: 'packer'
+          workingDir: '.'
         env:
           PACKER_LOG: 1
 
