@@ -51,13 +51,13 @@ jobs:
           PACKER_LOG: 1
 
       # Run Ansible
-      - name: Run Ansible Playbook
-        uses: dawidd6/action-ansible-playbook@v2
-        with:
-         # Required, playbook filepath
-         playbook: ansible/application.yml
-       # Optional, SSH private key
-         key: ${{secrets.SSH_PRIVATE_KEY}}
-        env:
-          PACKER_LOG: 1
+   #   - name: Run Ansible Playbook
+   #     uses: dawidd6/action-ansible-playbook@v2
+   #     with:
+   #      # Required, playbook filepath
+   #      playbook: ansible/application.yml
+   #    # Optional, SSH private key
+   #      key: ${{secrets.SSH_PRIVATE_KEY}}
+   #     env:
+   #       PACKER_LOG: 1
 
