@@ -5,6 +5,11 @@ variable "region" {
   default = "us-east-1"
 }
 
+variable "ami_id" {
+  type    = string
+  default = "ami-0022f774911c1d690"
+}
+
 variable "public_subnet_id" {
   type    = string
   default = "subnet-05879b88350bb719e"
@@ -24,11 +29,20 @@ source "amazon-ebs" "firstrun" {
   region                                = var.region
   subnet_id                             = var.public_subnet_id
   associate_public_ip_address           = true
+  ssh_keypair_name                      = "apache"
+  security_group_filter {
+    filters = {
+      "tag:Class": "Dev-sec-group"
+    }
+  }
+
+
   #temporary_security_group_source_cidrs = ["10.8.2.0/26","10.8.2.64/26"]
 
 source_ami_filter {
     filters = {
-      name                = "al2022-ami-*"
+      image-id = "${var.ami_id}"
+      #name                = "al2022-ami-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
