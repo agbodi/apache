@@ -22,7 +22,6 @@ source "amazon-ebs" "apache-server" {
   region        = "us-east-1"
   source_ami_filter {
     filters = {
-      Name = "Packer"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
