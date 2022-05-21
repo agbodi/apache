@@ -29,8 +29,6 @@ source "amazon-ebs" "firstrun" {
   region                                = var.region
   subnet_id                             = var.public_subnet_id
   associate_public_ip_address           = true
-  ssh_keypair_name                      = "apache"
-  ssh_private_key_file                  = "/Users/agbodimowo/.ssh/apache.pem"
   security_group_filter {
     filters = {
       "tag:Class": "Dev-sec-group"
